@@ -53,13 +53,13 @@ class XTCLintPlugin implements Plugin<Project> {
         //========================== 统一  自动添加AAR  开始=============================================//
         //配置project的dependencies配置，默认都自动加上 自定义lint检测的AAR包
         project.dependencies {
-            //如果是android application项目
+            //如果是android application项目，通过lint插件在要检测的项目中动态的添加compile  com.xtc.lint.aar:XTCLintAAR:1.0.0  aar
             if (project.getPlugins().hasPlugin('com.android.application')) {
-                compile('com.xtc.lint:lint-check:+') {
+                compile('com.xtc.lint.aar:XTCLintAAR:1.0.0') {
                     force = true
                 }
             } else {
-                provided('com.xtc.lint:lint-check:+') {
+                provided('com.xtc.lint.aar:XTCLintAAR:1.0.0') {
                     force = true
                 }
             }

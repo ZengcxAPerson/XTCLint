@@ -1,0 +1,11 @@
+apply plugin: 'maven'
+
+
+uploadArchives{ //当前项目可以发布到本地文件夹中
+    repositories.mavenDeployer {
+        repository(url: 'file:./XTCLintPlugin/repo/')
+        pom.groupId = 'com.xtc.lint.plugin'
+        pom.artifactId = 'XTCLintPlugin'
+        pom.version = '1.0.1'
+    }
+}

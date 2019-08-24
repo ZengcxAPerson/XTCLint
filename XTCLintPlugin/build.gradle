@@ -1,7 +1,15 @@
 apply plugin: 'groovy'
 
-apply from: 'maven_upload.gradle'
+//apply from: 'maven_upload.gradle'
+apply from: 'maven_upload_local.gradle'
 apply from: '../jenkins.gradle'
+
+repositories {
+    mavenLocal()
+    maven{
+        url "file:./../XTCLintAAR/repo/"
+    }
+}
 
 dependencies {
     compile gradleApi()
@@ -13,6 +21,10 @@ dependencies {
 tasks.withType(JavaCompile){
     options.encoding = "UTF-8"
 }
+
+
+
+
 
 //添加额外的信息
 //jar {

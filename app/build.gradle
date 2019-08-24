@@ -47,7 +47,15 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
 
+    //设置本地仓库的写法，如果上传到了maven本地仓库则需要按照下面的写法，同时再引用compile
+    repositories{
+        maven{
+            url "file:./../XTCLintAAR/repo/"
+        }
+    }
+//    compile 'com.xtc.lint.aar:XTCLintAAR:1.0.0'
+
     //加载lint检测的AAR
-//    compile project(':XTCLintAAR')
+ //   compile project(':XTCLintAAR')
 //    compile 'com.xtc.lint:lint-check:1.0.50-Dev'
 }
